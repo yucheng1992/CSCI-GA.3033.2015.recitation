@@ -48,7 +48,7 @@ func main() {
 	elapsedSingle := time.Since(start)
 
 	if sum != check {
-		fmt.Printf("expected %v; got %v\n", check, sum)
+		fmt.Printf("sum incorrect\nexpected %v; got %v\n", check, sum)
 	} else {
 		fmt.Printf("sum %v calculated correctly\n", sum)
 		fmt.Printf("parallel took %v\n", elapsedParallel)
