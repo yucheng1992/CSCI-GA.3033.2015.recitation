@@ -1,9 +1,10 @@
 package main
 
-import "fmt"       // for Printf
-import "os"        // to access the command line params
-import "io/ioutil" // for ReadFile
+import "fmt"
+import "os"
+import "io/ioutil"
 import "strings"
+import "path/filepath"
 
 // Problem: given a string, find the words that contain duplicate instances.
 // Define a word as a sequence of characters that does not match
@@ -23,7 +24,7 @@ func GetFileContents(path string) string {
 
 func main() {
 	if len(os.Args) != 2 {
-		fmt.Printf("usage: %v <filename>\n", os.Args[0])
+		fmt.Printf("usage: %v <filename>\n", filepath.Base(os.Args[0]))
 		os.Exit(1)
 	}
 
