@@ -5,10 +5,11 @@ import "os"        // to access the command line params
 import "io/ioutil" // for ReadFile
 import "strings"
 
-// Problem: given a string, find the words that contain duplicate instances
+// Problem: given a string, find the words that contain duplicate instances.
 // Define a word as a sequence of characters that does not match
 // the regular expression "[\r\n ]*".
 func FindDuplicates(input string) []string {
+	// your code here
 	return []string{}
 }
 
