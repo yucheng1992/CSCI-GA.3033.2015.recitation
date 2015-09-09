@@ -1,5 +1,5 @@
 # CSCI-GA.3033.2015
-Courese Website: http://news.cs.nyu.edu/~jinyang/fa15-ds/
+Course Website: http://news.cs.nyu.edu/~jinyang/fa15-ds/
 
 ## Part 1 - Golang Basics
 
