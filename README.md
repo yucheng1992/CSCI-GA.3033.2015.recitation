@@ -3,7 +3,7 @@ Course Website: http://news.cs.nyu.edu/~jinyang/fa15-ds/
 
 ## Part 1 - Golang Basics
 
-This document assumes you have already reviewed [A Tour of Go] [1]. After you have completed the tour, bookmark [Effective Go] [2] as it will be extremely useful during your project development.
+This document assumes you have already reviewed [A Tour of Go] [1]. After you have completed the tour, bookmark [Effective Go] [2] as it will be extremely useful during your project development. The tutorial [How to Write Go Code] [5] contains information about how the primary tools in the Go ecosystem are configured.
 
 Go is a staticly typed, garbage collected language that is heavily influenced by C 
 -- and to a lesser extent C++ and Java. It's type system contains similar basic types 
@@ -158,4 +158,4 @@ Run the files with the following:
 [2]: https://golang.org/doc/effective_go.html  "Effective Go"
 [3]: https://golang.org/doc/effective_go.html#slices "Slices" 
 [4]: https://golang.org/ref/spec#Channel_types "Channels"
-
+[5]: http://golang.org/doc/code.html "How To Write Go Code"
