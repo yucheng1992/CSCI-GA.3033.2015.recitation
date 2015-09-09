@@ -148,6 +148,7 @@ Complete the excercises in sum.go and duplicate.go before the recitation session
 For the sum.go problem, try to implement using channels and without. Which one is more elagant? 
 
 Run the files with the following:
+
 	$ cd excercises/session1
 	$ go run duplicate.go words.txt
 	$ go run sum.go
