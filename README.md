@@ -143,7 +143,14 @@ In general, using slices instead of array types is considered [effective go code
 
 ### Part 2 - Excercises
 
-Complete the excercises in sum.go and duplicate.go before the recitation session (date announced on Piazza). We will look at various solutions for these two problems during the class. For the sum.go problem, try to implement using channels and without. Which one is more elagant? 
+Complete the excercises in sum.go and duplicate.go before the recitation session (date announced on Piazza). We will look at various solutions for these two problems during the class. 
+
+For the sum.go problem, try to implement using channels and without. Which one is more elagant? 
+
+Run the files with the following:
+	$ cd excercises/session1
+	$ go run duplicate.go words.txt
+	$ go run sum.go
 
 <!-- References -->
 [1]: https://tour.golang.org/welcome/1 "Tour"
