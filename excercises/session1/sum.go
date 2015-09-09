@@ -1,6 +1,6 @@
 package main
 
-import "fmt" // for Printf
+import "fmt"
 import "time"
 import "runtime"
 import "math/rand"

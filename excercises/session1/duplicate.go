@@ -7,8 +7,9 @@ import "strings"
 import "path/filepath"
 
 // Problem: given a string, find the words that contain duplicate instances.
-// Define a word as a sequence of characters that does not match
-// the regular expression "[\r\n ]*".
+// Define a word as a sequence of contiguous characters where each character
+// is not a space or newline (/n or /r/n).
+// Hint: the 'strings' package may be helpful
 func FindDuplicates(input string) []string {
 	// your code here
 	return []string{}
