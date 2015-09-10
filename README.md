@@ -142,8 +142,9 @@ In general, using slices instead of array types is considered [effective go code
 	}
 
 ### Part 2 - Excercises
+We will look at your solutions the excercises below during the class. 
 
-- Complete the excercises in sum.go and duplicate.go before the recitation session (date announced on Piazza). We will look at various solutions for these two problems during the class. For the sum.go problem, try to implement using channels and without. Which one is more elagant? 
+- Complete the excercises in sum.go and duplicate.go in this repository. For the sum.go problem, try to implement using channels and without. Which one is more elagant? 
 
 - Look at the code for lab1 and write a function that prints the names of the registered workers periodically (every n seconds). 
 
