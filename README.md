@@ -148,8 +148,9 @@ In general, using slices instead of array types is considered [effective go code
 - Look at the code for lab1 and write a function that prints the names of the registered workers periodically (every n seconds). Implement this function with the following signature:
 
 	func (mr *MapReduce) DebugWorkers(n int) {
-		// your code ... 
+		// your code ...
 	}
+
 
 Run the files with the following:
 
