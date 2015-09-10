@@ -143,9 +143,13 @@ In general, using slices instead of array types is considered [effective go code
 
 ### Part 2 - Excercises
 
-Complete the excercises in sum.go and duplicate.go before the recitation session (date announced on Piazza). We will look at various solutions for these two problems during the class. 
+- Complete the excercises in sum.go and duplicate.go before the recitation session (date announced on Piazza). We will look at various solutions for these two problems during the class. For the sum.go problem, try to implement using channels and without. Which one is more elagant? 
 
-For the sum.go problem, try to implement using channels and without. Which one is more elagant? 
+- Look at the code for lab1 and write a function that prints the names of the registered workers periodically (every n seconds). Implement this function with the following signature:
+
+	func (mr *MapReduce) DebugWorkers(n int) {
+		// your code ... 
+	}
 
 Run the files with the following:
 
