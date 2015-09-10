@@ -54,7 +54,7 @@ Golang also offers other primitive types that C++ and Java do not offer such as 
 ### Slices
 [Slices] [3] are a type that can be considered a lightweight array. More accurately, it is an abstraction of a view into an array that contains a pointer to the array, a length, and a capacity. Since functions in Go have call-by-value semantics, for larger data sets we can pass a slice more efficiently than an actual array. This also allows one to acheive the same effect as call-by-reference, since modifying an element of a slice will allow changes to the backing array to be visible to the caller.
 
-We can create a slice by taking a slice of an existing array or creating a new slice and associated backing array) in one step. The following code shows how to create slices and assign elements:
+We can create a slice by taking a slice of an existing array, or creating a new slice and associated backing array in one step. The following code shows how to create slices and assign elements:
 
 	package main
 	
