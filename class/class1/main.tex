@@ -1,0 +1,194 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[svgnames]{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\newcommand{\code}[1]{{\normalfont\ttfamily #1}}
+\newcommand{\mcode}[1]{\text{\code{#1}}}
+\newcommand{\red}[1]{{\color{red} #1}}
+\newcommand{\blue}[1]{{\color{blue} #1}}
+
+\lstnewenvironment{cxxlisting}{
+	\lstset{
+		language=c++,
+		tabsize=4,
+		basicstyle=\ttfamily,
+		breaklines=false,
+	}
+}{}
+
+\lstloadlanguages{Lisp}
+\lstnewenvironment{racket}{
+	\lstset{
+		language={[Auto]Lisp},
+		tabsize=4,
+		basicstyle=\scriptsize\ttfamily,
+		breaklines=true,
+		stringstyle=\color{Maroon},
+		commentstyle=\color{ForestGreen},
+		rulecolor=\color{gray!10},
+		keywordstyle=\color{blue},
+		morekeywords={define, define-syntax, syntax-rules, begin, let, lang, begin-for-syntax, make-readtable, current-readtable, parameterize, define-values, letrec, call, cc}
+	}
+}{}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Distributed Systems Recitation]{Distributed Systems Recitation} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Lamont Nelson} % Your name
+\institute[NYU] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+New York University \\ % Your institution for the title page
+\medskip
+\textit{lamont.nelson@nyu.edu} % Your email address
+}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+	\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+	\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+\section{Excercises}
+\section{Channels in Go}
+\section{Review Lab 1}
+\section{Lab Questions}
+
+\begin{frame}{Concurrency in Go}
+\begin{itemize}
+	\item Channels are a FIFO queue abstraction that allow inter-thread communication
+	\item Two types: buffered and unbuffered
+	\item Buffered channels block the sender if the buffer is full and blocks the receiver if the buffer is empty.
+	\item Unbuffered channels block the receiver/sender if there is no data to be sent/received.
+	\item Multiple channels can be polled for data using the switch construct.
+	\item Channels can be used to replace tradtional concurreny control abstractions such as Mutexes and Semaphores.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Concurrency in Go (cont)}
+\begin{itemize}
+	\item The language also offers other concurrency control mechanisms in the "sync" and "sync/atomic" packages.
+	\item Examples: Mutex, Barriers (WaitGroup), Condition Variables, Atomic Load/Stores
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Producer/Consumer Problem}
+\begin{itemize}
+	\item Also called the bounded buffer problem
+	\item Setup:
+		\begin{itemize}
+			\item Fixed size buffer
+			\item $N$ Producer threads - put items onto the buffer
+			\item $M$ consumer threads - retrieve items from the buffer
+		\end{itemize}
+	\item Problem: How can we allow the producers to concurrently distribute items to the consumers without overflowing the buffer?
+	\item Multiple ways to accomplish this in Go
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Lab 1 Questions}
+\begin{itemize}
+	\item How can we determine the current list of workers?
+	\item What are the paramaters required to make an RPC call?
+	\item What should happen if a worker fails? How do we know a worker has failed?
+	\item Other Questions?
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\Huge{\centerline{The End}}
+\end{frame}
+
+\end{document} 
