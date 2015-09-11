@@ -4,9 +4,12 @@ import "fmt"
 import "container/list"
 import "sync"
 import "runtime"
+import "time"
+import "sync/atomic"
 
 const (
-	NumItems = 20
+	NumItems     = 25
+	NumConsumers = 4
 )
 
 type Buffer struct {
@@ -61,15 +64,20 @@ func main() {
 		}
 	}()
 
-	// consumer
-	go func() {
-		count := 0
-		for count < NumItems {
-			item := buf.Get()
-			fmt.Printf("Got %v\n", item)
-			count++
-		}
-	}()
+	time.Sleep(100 * time.Millisecond)
+
+	// consumers
+	var numRecv int32
+	for cId := 0; cId < NumConsumers; cId++ {
+		go func(id int) {
+			for numRecv < NumItems {
+				item := buf.Get()
+				fmt.Printf("%v Got %v\n", id, item)
+				atomic.AddInt32(&numRecv, 1)
+			}
+			fmt.Printf("%v done\n", id)
+		}(cId)
+	}
 
 	var s string
 	// wait for <enter> to exit

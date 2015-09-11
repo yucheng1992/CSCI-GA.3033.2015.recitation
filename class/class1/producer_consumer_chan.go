@@ -4,9 +4,10 @@ import "fmt"
 import "runtime"
 import "sync/atomic"
 import "errors"
+import "time"
 
 const (
-	NumItems     = 10
+	NumItems     = 25
 	NumConsumers = 4
 )
 
@@ -50,6 +51,8 @@ func main() {
 		}
 		buf.Free()
 	}()
+
+	time.Sleep(100 * time.Millisecond)
 
 	// consumer
 	var numRecv int32
